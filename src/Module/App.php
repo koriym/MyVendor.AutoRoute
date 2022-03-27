@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace MyVendor\MyProject\Module;
 
 use BEAR\Resource\ResourceInterface;
+use BEAR\Sunday\DispatcherInterface;
 use BEAR\Sunday\Extension\Application\AppInterface;
 use BEAR\Sunday\Extension\Error\ThrowableHandlerInterface;
 use BEAR\Sunday\Extension\Router\RouterInterface;
@@ -18,18 +19,21 @@ final class App implements AppInterface
     public TransferInterface $responder;
     public ResourceInterface $resource;
     public ThrowableHandlerInterface $throwableHandler;
+    public DispatcherInterface $dispatcher;
 
     public function __construct(
         HttpCacheInterface $httpCache,
         RouterInterface $router,
         TransferInterface $responder,
         ResourceInterface $resource,
-        ThrowableHandlerInterface $throwableHandler
+        ThrowableHandlerInterface $throwableHandler,
+        DispatcherInterface $dispatcher
     ) {
         $this->httpCache = $httpCache;
         $this->router = $router;
         $this->responder = $responder;
         $this->resource = $resource;
         $this->throwableHandler = $throwableHandler;
+        $this->dispatcher = $dispatcher;
     }
 }

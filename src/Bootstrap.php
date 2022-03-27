@@ -6,7 +6,6 @@ namespace MyVendor\MyProject;
 
 use BEAR\Resource\ResourceObject;
 use BEAR\Sunday\Extension\Application\AppInterface;
-use BEAR\Sunday\Extension\Router\RouterInterface;
 use MyVendor\MyProject\Module\App;
 use Throwable;
 
