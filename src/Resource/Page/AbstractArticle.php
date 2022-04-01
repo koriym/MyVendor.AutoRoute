@@ -17,11 +17,11 @@ abstract class AbstractArticle extends ResourceObject
     /** @return static */
     public function onGet(string ...$params): static
     {
-        $params['cateGory'] = (new ReflectionClass(get_called_class()))->getShortName(); // static binding class name
+        $params['category'] = (new ReflectionClass(get_called_class()))->getShortName(); // static binding class name
         $this->body = match (count($params)) {
             3 => $this->resource->get('app://self/article', [$params]),
-            2 => $this->resource->get('app://self/category', [$params]),
-            1 => $this->resource->get('app://self/subCategory', [$params]),
+            2 => $this->resource->get('app://self/article-category', [$params]),
+            1 => $this->resource->get('app://self/article-subCategory', [$params]),
         };
 
         return $this;
