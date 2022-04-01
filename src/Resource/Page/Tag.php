@@ -7,11 +7,11 @@ namespace MyVendor\MyProject\Resource\Page;
 use BEAR\Resource\ResourceObject;
 
 /**
- * Root page
+ * Tag page
  */
-class Index extends ResourceObject
+class Tag extends ResourceObject
 {
-    public function onGet(): static
+    public function onGet(string $id): static
     {
         return $this;
     }
